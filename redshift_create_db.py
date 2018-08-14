@@ -39,8 +39,6 @@ options:
       - The value specifies the initial database (which is also called as maintenance DB) that Ansible connects to.
     default: postgres
 author: "Stuart Caine"
-extends_documentation_fragment:
-- postgres
 '''
 
 EXAMPLES = '''
@@ -49,8 +47,7 @@ EXAMPLES = '''
     name: acme
 
 # Create a new database with name "acme" and specific encoding and locale
-# settings. If a template different from "template0" is specified, encoding
-# and locale settings must match those of the template.
+# settings.
 '''
 
 import os
@@ -78,7 +75,7 @@ class NotSupportedError(Exception):
 
 
 # ===========================================
-# PostgreSQL module specific support methods.
+# Redshift module specific support methods.
 #
 
 def db_exists(cursor, db):
